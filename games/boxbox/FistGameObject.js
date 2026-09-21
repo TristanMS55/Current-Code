@@ -3,10 +3,10 @@ class FistGameObject extends GameObject{
         super()
         this.addComponent(new FistController())
         this.addComponent(new Polygon(), {fillStyle:"black", points:[
-            new Vector2(30,25),
-            new Vector2(30,-25),
-            new Vector2(-30,-25),
-            new Vector2(-30,25)
+            new Vector2(15,12.5),
+            new Vector2(15,-12.5),
+            new Vector2(-15,-12.5),
+            new Vector2(-15,12.5)
         ]})
     }
 }

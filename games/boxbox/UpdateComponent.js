@@ -24,7 +24,6 @@ class UpdateComponent extends Component{
 
         if(this.timeSinceLastPunch > 200){
             if(Input.buttonsDown.includes(0)){
-                print(this.timeSinceLastPunch)
                 instantiate(new FistGameObject(), this.transform.position.clone())
                 this.timeSinceLastPunch = 0
             }

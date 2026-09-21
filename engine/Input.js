@@ -18,7 +18,7 @@ class Input{
     }
 
     static mouseup(event){
-        let index = Input.keysDown.indexOf(event.button)
-        Input.keysDown.splice(index,1)
+        let index = Input.buttonsDown.indexOf(event.button)
+        Input.buttonsDown.splice(index,1)
     }
 }
