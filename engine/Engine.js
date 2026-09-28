@@ -3,9 +3,7 @@ class Engine {
 
     static ctx
 
-    static currentScene
-
-    static start() {
+    static start(nextScene) {
         Engine.canvas = document.querySelector("#canv")
 
 
@@ -16,12 +14,13 @@ class Engine {
         addEventListener("mousedown", Input.mousedown)
         addEventListener("mouseup", Input.mouseup)
 
-        Engine.currentScene.start()
+        SceneManager.nextScene = nextScene
 
         requestAnimationFrame(Engine.gameLoop)
     }
 
     static gameLoop() {
+        SceneManager.update()
         //update and draw
         Engine.update()
         Engine.draw()
@@ -34,7 +33,8 @@ class Engine {
 
     static update() {
         //update()
-        Engine.currentScene.update()
+        SceneManager.currentScene.start()
+        SceneManager.currentScene.update()
     }
 
     static draw() {
@@ -42,6 +42,6 @@ class Engine {
         Engine.canvas.width = window.innerWidth
         Engine.canvas.height = window.innerHeight
         //draw(Engine.ctx)
-        Engine.currentScene.draw(Engine.ctx)
+        SceneManager.currentScene.draw(Engine.ctx)
     }
 }

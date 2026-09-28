@@ -1,6 +1,6 @@
 class FistGameObject extends GameObject{
     constructor(){
-        super()
+        super("Fist")
         this.addComponent(new FistController())
         this.addComponent(new Polygon(), {fillStyle:"black", points:[
             new Vector2(15,12.5),
