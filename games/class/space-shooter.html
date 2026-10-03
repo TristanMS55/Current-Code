@@ -2,6 +2,10 @@
     <head>
         <title>Game Loop</title>
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
         <style>
             /* Remove margins and never show scrollbars */
             *{
@@ -30,6 +34,7 @@
         <script src="../../engine/components/Transform.js"></script>
         <script src="../../engine/components/Polygon.js"></script>
         <script src="../../engine/components/TextLabel.js"></script>
+        <script src="../../engine/components/Camera.js"></script>
         
         <!-- <p>Game Components</p> -->
         <script src="./components/EnemyController.js"></script>
@@ -54,11 +59,12 @@
         <!-- <p>General Use</p> -->
         <script src="./Assets.js"></script>
         <script src="./Globals.js"></script>
+        <script src="./Settings.js"></script>
         
 
         <script>
         
-            Engine.start(Level01)
+            Engine.start(Level01, Settings)
             
         </script>
     </body>

@@ -3,7 +3,9 @@ class Engine {
 
     static ctx
 
-    static start(nextScene) {
+    static layers = ["default", "UI"]
+
+    static start(nextScene, settings) {
         Engine.canvas = document.querySelector("#canv")
 
 
@@ -15,6 +17,10 @@ class Engine {
         addEventListener("mouseup", Input.mouseup)
 
         SceneManager.nextScene = nextScene
+
+        if(settings){
+            Engine.layers = settings.layers
+        }
 
         requestAnimationFrame(Engine.gameLoop)
     }

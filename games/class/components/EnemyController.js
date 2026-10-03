@@ -5,7 +5,7 @@ class EnemyController extends Component{
         if (this.transform.position.x > 200){
             this.direction = -1
         }
-        if (this.transform.position.x < 100)
+        if (this.transform.position.x < 0)
             this.direction = 1
         if (this.gameObject.getComponent(Health).health <= 0){
             this.gameObject.destroy()

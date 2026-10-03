@@ -14,8 +14,8 @@ class FistController extends Component{
         for (const enemyGameObject of enemyGameObjects){
             let enemyPosition = GameObject.find("Enemy").transform.position
             let distance = myPosition.minus(enemyPosition).magnitude
-            if(distance < 60){
-                this.gameObject.destroy()
+            if(distance < 60 && this.punchTime >= this.punchTime*10){
+                
                 let healthComponent = enemyGameObject.getComponent(Health)
                 healthComponent.health --
                 Globals.points ++

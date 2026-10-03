@@ -4,7 +4,7 @@ class UpdateComponent extends Component{
     timeSinceLastPunch
 
     start(){
-        this.timeSinceLastPunch = 200
+        this.timeSinceLastPunch = 100
     }
 
     update(){
@@ -22,7 +22,7 @@ class UpdateComponent extends Component{
         if(Input.keysDown.includes("KeyS") && this.transform.position.y <= window.innerHeight/2+200)
             this.transform.position.y += Time.deltaTime * this.speed //this.position.y + 1
 
-        if(this.timeSinceLastPunch > 200){
+        if(this.timeSinceLastPunch > 100){
             if(Input.buttonsDown.includes(0)){
                 instantiate(new FistGameObject(), this.transform.position.clone())
                 this.timeSinceLastPunch = 0
