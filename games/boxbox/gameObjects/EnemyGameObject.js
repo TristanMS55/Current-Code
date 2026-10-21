@@ -6,5 +6,6 @@ class EnemyGameObject extends GameObject{
         this.addComponent(new EnemyController())
         this.addComponent(new Health(), {health:this.health})
         this.transform.scale = new Vector2(4, 4)
+        Globals.bossHealth = this.health
     }
 }

@@ -12,14 +12,16 @@ class FistController extends Component{
         let myPosition = this.transform.position
         let enemyGameObjects = GameObject.findGameObjectsWithTag("Enemy")
         for (const enemyGameObject of enemyGameObjects){
-            let enemyPosition = GameObject.find("Enemy").transform.position
+            let enemyPosition = enemyGameObject.transform.position
             let distance = myPosition.minus(enemyPosition).magnitude
             if(distance < 60 && this.punchTime >= this.punchTime*10){
                 let healthComponent = enemyGameObject.getComponent(Health)
-                healthComponent.health --
+                healthComponent.health -= 1
                 let gameObjects = GameObject.findGameObjectsByType(Transform)
-                for(const gameObject of gameObjects)
+                for(const gameObject of gameObjects){
                     gameObject.broadcastMessage("updatePoints", [1])
+                    gameObject.broadcastMessage("updateBossHealth", [1])
+                }
             }
         }
     }

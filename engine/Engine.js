@@ -15,6 +15,7 @@ class Engine {
         addEventListener("keyup", Input.keyup)
         addEventListener("mousedown", Input.mousedown)
         addEventListener("mouseup", Input.mouseup)
+        addEventListener("mousemove", Input.mousemove)
 
         SceneManager.nextScene = nextScene
 
@@ -32,6 +33,7 @@ class Engine {
         Engine.draw()
         
         Time.update()
+        Input.update()
 
         //...then call game loop again next time browser can
         requestAnimationFrame(Engine.gameLoop)

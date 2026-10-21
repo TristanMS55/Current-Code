@@ -29,11 +29,13 @@
         <script src="../../engine/Scene.js"></script>
         <script src="../../engine/Time.js"></script>
         <script src="../../engine/SceneManager.js"></script>
+        <script src="../../engine/Collisions.js"></script>
 
         <!-- <p>Engine Components</p> -->
         <script src="../../engine/components/Transform.js"></script>
         <script src="../../engine/components/Polygon.js"></script>
         <script src="../../engine/components/TextLabel.js"></script>
+        <script src="../../engine/components/MultiLineTextLabel.js"></script>
         <script src="../../engine/components/Camera.js"></script>
         
         <!-- <p>Game Components</p> -->
@@ -43,6 +45,7 @@
         <script src="./components/LevelController.js"></script>
         <script src="./components/PointsController.js"></script>
         <script src="./components/UpdateComponent.js"></script>
+        <script src="./components/SceneTimerController.js"></script>
 
         <!-- <p>Game Objects</p> -->
         <script src="./gameObjects/EnemyGameObject.js"></script>
@@ -50,11 +53,13 @@
         <script src="./gameObjects/LevelControllerGameObject.js"></script>
         <script src="./gameObjects/MainGameObject.js"></script>
         <script src="./gameObjects/PointsGameObject.js"></script>
+        <script src="./gameObjects/HelperGameObject.js"></script>
 
         <!-- <p>Scenes</p> -->
         <script src="./scenes/Level01.js"></script>
         <script src="./scenes/Level02.js"></script>
         <script src="./scenes/GenericLevel.js"></script>
+        
 
         <!-- <p>General Use</p> -->
         <script src="./Assets.js"></script>
@@ -63,9 +68,22 @@
         
 
         <script>
-        
-            Engine.start(Level01, Settings)
             
+            //Start the game engine
+            Engine.start(Level01, Settings)
+
+            //Tests
+            let gameObject = new GameObject()
+            gameObject.addComponent(new Polygon(), {points: [
+                new Vector2(0,-1), 
+                new Vector2(-1, 1), 
+                new Vector2(1,1), 
+            ]})
+            console.assert(Collisions.isCollisionPointPolygon(new Vector2(0,0), gameObject))
+            console.assert(!Collisions.isCollisionPointPolygon(new Vector2(10000,10000), gameObject))
+            console.assert(!Collisions.isCollisionPointPolygon(new Vector2(0,1.1), gameObject))
+            console.assert(!Collisions.isCollisionPointPolygon(new Vector2(0,-1.00001), gameObject))
+
         </script>
     </body>
 </html>

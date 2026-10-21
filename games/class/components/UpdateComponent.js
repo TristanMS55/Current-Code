@@ -26,11 +26,10 @@ class UpdateComponent extends Component{
             this.transform.position.y += Time.deltaTime * this.speed //this.position.y + 1
 
         
-        if(this.timeSinceLastLaser > 20){
+        if(this.timeSinceLastLaser > 20 && Input.keysDown.includes("Space")){
             this.timeSinceLastLaser = 0
             let laserGameObject = instantiate(new LaserGameObject(), this.transform.position.clone())
-            if(Math.random() < .5)
-                laserGameObject.getComponent(Polygon).fillStyle = "green"
+            laserGameObject.getComponent(Polygon).fillStyle = "#FF991180"
         }
 
         Camera.main.transform.position = this.transform.position.clone()
