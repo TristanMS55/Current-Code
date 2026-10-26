@@ -68,7 +68,6 @@ class GameObject{
         return SceneManager.currentScene.gameObjects.find(go=>go.name == name)
     }
     static findGameObjectsWithTag(tag){
-        //return SceneManager.currentScene.gameObjects.find(function(go)){return go.name == name})
         return SceneManager.currentScene.gameObjects.filter(go=>go.tags.includes(tag))
     }
 

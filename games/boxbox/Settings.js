@@ -1,3 +1,3 @@
 class Settings{
-    static layers = ["background", "fists", "fighters", "UI"]
+    static layers = ["background", "platform", "fighters", "fists", "UI"]
 }
