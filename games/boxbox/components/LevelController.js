@@ -17,6 +17,7 @@ class LevelController extends Component{
             SceneManager.loadScene(Globals.levelList[Globals.level])
         }
         else if(podiumOverlaps == true && Globals.level%2 == 1){
+            
             Globals.level += 1
             SceneManager.loadScene(Globals.levelList[Globals.level])
         }
