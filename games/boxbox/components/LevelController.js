@@ -1,4 +1,5 @@
 class LevelController extends Component{
+    static podiumOverlaps = false
     start(){
         SceneManager.loadScene(GenericLevel, true)
     }
@@ -6,7 +7,7 @@ class LevelController extends Component{
         let player = GameObject.find("Main")
         let enemy = GameObject.find("Enemy")
         let podiums = GameObject.findGameObjectsWithTag("Podium")
-        let podiumOverlaps = false
+        
         for(const podium of podiums){
             if (Collisions.isCollisionPolygonPolygon(player, podium) == true){
                 podiumOverlaps = true
@@ -16,8 +17,7 @@ class LevelController extends Component{
             Globals.level += 1
             SceneManager.loadScene(Globals.levelList[Globals.level])
         }
-        else if(podiumOverlaps == true && Globals.level%2 == 1){
-            
+        else if(this.podiumOverlaps == true && Globals.level%2 == 1){
             Globals.level += 1
             SceneManager.loadScene(Globals.levelList[Globals.level])
         }

@@ -28,7 +28,17 @@ class UpdateComponent extends Component{
                 this.timeSinceLastPunch = 0
             }
         }
+        console.log(LevelController.podiumOverlaps)
         Camera.main.transform.position = this.transform.position.clone()
     }
 
+    // onMouseOver(){
+    //     console.log("Mouse Over")
+    // }
+
+    onTriggerStay(other, minimumTransformVector){
+        if (other.name == "PodiumGameObject")
+            LevelController.podiumOverlaps = true
+    }
+    
 }

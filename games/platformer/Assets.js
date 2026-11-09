@@ -1,14 +1,14 @@
 class Assets{
-    static triangle = [
+    static triangle = [[
             new Vector2(0, -1),
             new Vector2(1, 1),
             new Vector2(-1, 1),
-        ]
+        ]]
 
-    static square  = [
+    static square  = [[
       new Vector2(1, 1),
       new Vector2(-1, 1),
       new Vector2(-1, -1),
       new Vector2(1, -1)
-    ]
+    ]]
 }

@@ -5,4 +5,6 @@ class Globals{
     static level = 0
 
     static levelList = [Level01, ChoiceLevel, Level02]
+
+    static enemyList = ["Triangle", "Rectangle"]
 }
