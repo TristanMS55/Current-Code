@@ -1,6 +1,6 @@
 class Polygon extends Component {
 
-    fillStyle = ["magenta"]
+    fillStyle = "magenta"
     points = []
 
     draw(ctx) {
@@ -16,16 +16,14 @@ class Polygon extends Component {
         // ctx.scale(this.transform.scale.x, this.transform.scale.y)
 
         ctx.beginPath()
-        for(let i = 0; i < this.points.length; i++){
-            ctx.fillStyle = this.fillStyle[i]
-            for(const point of this.points[i]){
-                ctx.lineTo(point.x, point.y)
-            }
-            ctx.fill()
-            ctx.beginPath()
+        for(const point of this.points){
+            ctx.lineTo(point.x, point.y)
         }
 
+
+        ctx.fillStyle = this.fillStyle
         //tell canvas to draw object
+        ctx.fill()
 
         //Signaling that I'm done drawing
         ctx.restore()

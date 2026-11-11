@@ -7,7 +7,7 @@ class UpdateComponent extends Component{
         this.timeSinceLastPunch = 100
     }
 
-    update(){
+    fixedUpdate(){
         this.timeSinceLastPunch += 1
 
         if(Input.keysDown.includes("KeyD") && this.transform.position.x <= 200)
@@ -32,13 +32,11 @@ class UpdateComponent extends Component{
         Camera.main.transform.position = this.transform.position.clone()
     }
 
-    // onMouseOver(){
-    //     console.log("Mouse Over")
-    // }
-
     onTriggerStay(other, minimumTransformVector){
-        if (other.name == "PodiumGameObject")
+        if (other.name == "Podium")
             LevelController.podiumOverlaps = true
     }
+
+    
     
 }
