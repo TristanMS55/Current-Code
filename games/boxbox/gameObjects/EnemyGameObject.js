@@ -4,10 +4,10 @@ class EnemyGameObject extends GameObject{
     constructor(){
         super("Enemy", ["Enemy"], "fighters")
         if(this.enemyType == "Triangle"){
-            this.addComponent(new Polygon(), {fillStyle: ["brown"], points: Assets.triangle})
+            this.addComponent(new Polygon(), {fillStyle: "brown", points: Assets.triangle})
         }
         if(this.enemyType == "Rectangle"){
-            this.addComponent(new Polygon(), {fillStyle: ["white"], points: Assets.rectangle})
+            this.addComponent(new Polygon(), {fillStyle: "white", points: Assets.rectangle})
         }
         this.addComponent(new EnemyController())
         this.addComponent(new Health(), {health:this.health})

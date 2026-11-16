@@ -1,14 +1,14 @@
 class UpdateComponent extends Component{
 
     speed = 300
-    timeSinceLastPunch
+    static timeSinceLastPunch
 
     start(){
-        this.timeSinceLastPunch = 100
+        UpdateComponent.timeSinceLastPunch = 100
     }
 
     fixedUpdate(){
-        this.timeSinceLastPunch += 1
+        UpdateComponent.timeSinceLastPunch += 1
 
         if(Input.keysDown.includes("KeyD") && this.transform.position.x <= 200)
             this.transform.position.x += Time.deltaTime * this.speed // this.position.x + 1
@@ -22,14 +22,8 @@ class UpdateComponent extends Component{
         if(Input.keysDown.includes("KeyS") && this.transform.position.y <= 200)
             this.transform.position.y += Time.deltaTime * this.speed //this.position.y + 1
 
-        if(this.timeSinceLastPunch > 100){
-            if(Input.buttonsDown.includes(0)){
-                instantiate(new FistGameObject(), this.transform.position.clone(), 3*Math.PI/2)
-                this.timeSinceLastPunch = 0
-            }
-        }
         console.log(LevelController.podiumOverlaps)
-        Camera.main.transform.position = this.transform.position.clone()
+        // Camera.main.transform.position = this.transform.position.clone()
     }
 
     onTriggerStay(other, minimumTransformVector){

@@ -7,4 +7,6 @@ class Globals{
     static levelList = [Level01, ChoiceLevel, Level02]
 
     static enemyList = ["Triangle", "Rectangle"]
+
+    static punchSpeed = 20
 }
