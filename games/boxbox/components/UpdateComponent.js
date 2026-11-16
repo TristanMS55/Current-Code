@@ -1,14 +1,12 @@
 class UpdateComponent extends Component{
 
     speed = 300
-    static timeSinceLastPunch
 
     start(){
-        UpdateComponent.timeSinceLastPunch = 100
+        
     }
 
     fixedUpdate(){
-        UpdateComponent.timeSinceLastPunch += 1
 
         if(Input.keysDown.includes("KeyD") && this.transform.position.x <= 200)
             this.transform.position.x += Time.deltaTime * this.speed // this.position.x + 1

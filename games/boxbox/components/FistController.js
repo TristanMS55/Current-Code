@@ -2,8 +2,16 @@ class FistController extends Component{
     punchTime = 0
     punchOccurred = false
     hitOccurred = false
+    timeSinceLastPunch
+    start(){
+        this.timeSinceLastPunch = 100
+    }
+
+    fixedUpdate(){
+        this.timeSinceLastPunch += 1
+    }
     update(){
-        if((Input.buttonsDown.includes(0) || this.punchOccurred == true) && UpdateComponent.timeSinceLastPunch > 100){
+        if((Input.buttonsDown.includes(0) || this.punchOccurred == true) && this.timeSinceLastPunch > 100){
             this.punchTime += Time.deltaTime * 60
             if(this.punchTime < Time.deltaTime*60*20){
                 this.transform.position.x += 4
@@ -16,7 +24,7 @@ class FistController extends Component{
                 this.punchTime = 0
                 this.punchOccurred = false
                 this.hitOccurred = false
-                UpdateComponent.timeSinceLastPunch = 0
+                this.timeSinceLastPunch = 0
             }
 
             // let myPosition = this.transform.position
