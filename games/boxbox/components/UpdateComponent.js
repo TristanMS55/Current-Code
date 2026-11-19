@@ -1,7 +1,7 @@
 class UpdateComponent extends Component{
 
     speed = 300
-
+    enemyCollisionTime
     start(){
         
     }
@@ -25,10 +25,19 @@ class UpdateComponent extends Component{
     }
 
     onTriggerStay(other, minimumTransformVector){
-        if (other.name == "Podium")
+        if(other.name == "Podium")
             LevelController.podiumOverlaps = true
     }
 
+    onCollisionStay(other, minimumTransformVector){
+        if(other.name == "Enemy"){
+            this.enemyCollisionTime = 10
+            while(this.enemyCollisionTime > 0){
+                this.transform.position.x -= Time.deltaTime * this.speed
+                this.enemyCollisionTime -= 1
+            }
+        }
+    }
     
     
 }

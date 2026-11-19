@@ -3,12 +3,16 @@ class Polygon extends Component {
     fillStyle = "magenta"
     points = []
 
+    alpha = 1
+
     draw(ctx) {
 
         let position = this.transform.position
 
         //Signaling to the context that I'm going to draw something
         ctx.save()
+
+        ctx.globalAlpha = this.alpha
 
         //Set center of our object
         // ctx.translate(position.x, position.y)
