@@ -20,7 +20,7 @@ class UpdateComponent extends Component{
         if(Input.keysDown.includes("KeyS") && this.transform.position.y <= 200)
             this.transform.position.y += Time.deltaTime * this.speed //this.position.y + 1
 
-        console.log(LevelController.podiumOverlaps)
+        // console.log(LevelController.podiumOverlaps)
         // Camera.main.transform.position = this.transform.position.clone()
     }
 
@@ -33,8 +33,22 @@ class UpdateComponent extends Component{
         if(other.name == "Enemy"){
             this.enemyCollisionTime = 10
             while(this.enemyCollisionTime > 0){
-                this.transform.position.x -= Time.deltaTime * this.speed
-                this.enemyCollisionTime -= 1
+                if (this.transform.position.x < other.transform.position.x){
+                    this.transform.position.x -= Time.deltaTime * this.speed
+                    this.enemyCollisionTime -= 1
+                }
+                if (this.transform.position.y > other.transform.position.y){
+                    this.transform.position.y += Time.deltaTime * this.speed
+                    this.enemyCollisionTime -= 1
+                }
+                if (this.transform.position.x > other.transform.position.x){
+                    this.transform.position.x += Time.deltaTime * this.speed
+                    this.enemyCollisionTime -= 1
+                }
+                if (this.transform.position.y < other.transform.position.y){
+                    this.transform.position.y -= Time.deltaTime * this.speed
+                    this.enemyCollisionTime -= 1
+                }
             }
         }
     }
