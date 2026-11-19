@@ -6,5 +6,6 @@ class Level01 extends Scene{
         this.instantiate(new EnemyGameObject(), new Vector2(100, 0))
         this.instantiate(new LevelControllerGameObject())
         this.instantiate(new HealthLabelGameObject(), new Vector2(window.innerWidth/2, window.innerHeight-40))
+        this.instantiate(new PlayerHealthbar(), new Vector2(window.innerWidth/2, 40))
     }
 }

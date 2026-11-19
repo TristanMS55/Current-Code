@@ -45,6 +45,10 @@ class FistController extends Component{
         }
     }
 
+    gameEnded(){
+        this.gameObject.destroy()
+    }
+
     onTriggerStay(other, minimumTransformVector){
         if (other.name == "Enemy"){
             if (this.hitOccurred == false){

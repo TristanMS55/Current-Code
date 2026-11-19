@@ -22,6 +22,12 @@ class UpdateComponent extends Component{
 
         // console.log(LevelController.podiumOverlaps)
         // Camera.main.transform.position = this.transform.position.clone()
+
+        // if (this.gameObject.getComponent(Health).health <= 0)
+        //     this.gameObject.destroy()
+        //     let fist = GameObject.find("Fist")
+        //     fist.broadcastMessage("gameEnded")
+
     }
 
     onTriggerStay(other, minimumTransformVector){
@@ -32,6 +38,12 @@ class UpdateComponent extends Component{
     onCollisionStay(other, minimumTransformVector){
         if(other.name == "Enemy"){
             this.enemyCollisionTime = 10
+            let healthComponent = this.gameObject.getComponent(Health)
+            healthComponent.health -= 1
+            let gameObjects = GameObject.findGameObjectsByType(Transform)
+            for(const gameObject of gameObjects){
+                gameObject.broadcastMessage("updatePlayerHealth", [1])
+            }
             while(this.enemyCollisionTime > 0){
                 if (this.transform.position.x < other.transform.position.x){
                     this.transform.position.x -= Time.deltaTime * this.speed

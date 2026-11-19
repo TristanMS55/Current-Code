@@ -1,4 +1,5 @@
 class MainGameObject extends GameObject{
+    health = Globals.healthStat + 2
     constructor(){
         super("Main", [], "fighters")
         this.addComponent(new UpdateComponent())
@@ -10,5 +11,8 @@ class MainGameObject extends GameObject{
         ]})
         this.addComponent(new Collider())
         this.addComponent(new RigidBody())
+
+        this.addComponent(new Health(), {health:this.health})
+        Globals.playerHealth = this.health
     }
 }

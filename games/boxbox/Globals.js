@@ -2,6 +2,7 @@ class Globals{
     static points = 0
     static levelCount = 0
     static bossHealth = 0
+    static playerHealth = 0
     static level = 0
 
     static levelList = [Level01, ChoiceLevel, Level02]
@@ -9,4 +10,6 @@ class Globals{
     static enemyList = ["Triangle", "Rectangle"]
 
     static punchSpeed = 20
+
+    static healthStat = 0
 }
